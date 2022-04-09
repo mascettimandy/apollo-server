@@ -2,17 +2,17 @@ const { ApolloServer, gql } = require("apollo-server");
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
-  type Query {
-    name: String
-    book: String
+  type LINK {
+    url: String
+    slug: String
   }
 `;
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    name: (root, args, context) => "Mandy",
-    book: (root, args, context) => "HEY"
+    url: (root, args, context) => "Mandy",
+    slug: (root, args, context) => "HEY"
   }
 };
 
