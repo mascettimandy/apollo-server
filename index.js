@@ -6,21 +6,29 @@ const typeDefs = gql`
     url: String
     slug: String
   }
+
+  type Query {
+    link: [Link]
+  }
 `;
+
+const link = [
+  {
+    url: "facebook.com",
+    slug: "sdlfkjasl"
+  }
+];
 
 // Provide resolver functions for your schema fields
 const resolvers = {
-  Query: { 
-    getUrl: () => {
-       return{
-     url: (root, args, context) => "Mandy",
-     slug: (root, args, context) => "HEY"  
+  Query: {
+    link: () => link
   }
-
+};
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers
 });
 
 server.listen().then(({ url }) => {
